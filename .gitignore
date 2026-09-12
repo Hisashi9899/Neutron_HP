@@ -1,0 +1,7 @@
+node_modules
+.next
+out
+.versions
+legacy-static.html
+.vercel
+*.log

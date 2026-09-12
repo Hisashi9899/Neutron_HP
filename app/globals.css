@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --gold: #C9A86A; }
+html { scroll-behavior: smooth; }
+body { background: #0A0F2C; color: #F5F7FA; -webkit-font-smoothing: antialiased; }
+
+::selection { background: rgba(201,168,106,.35); }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .6rem;
+  border: 1px solid rgba(201,168,106,.35); border-radius: 999px;
+  padding: .35rem 1.1rem; font-size: .75rem; letter-spacing: .22em; color: #C9A86A;
+}
+.eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #C9A86A; box-shadow: 0 0 12px #C9A86A; }
+
+.btn-gold {
+  background: linear-gradient(135deg,#C9A86A,#A8874E); color: #0A0F2C;
+  transition: filter .2s, transform .2s, box-shadow .2s;
+}
+.btn-gold:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,106,.35); }
+.btn-ghost { border: 1px solid rgba(201,168,106,.35); transition: .2s; }
+.btn-ghost:hover { border-color: #C9A86A; color: #C9A86A; }
+
+/* CTA黄金ホバー：光が走る */
+.cta-shine { position: relative; overflow: hidden; }
+.cta-shine::after {
+  content: ""; position: absolute; top: 0; left: -80%; width: 50%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(245,247,250,.55), transparent);
+  transform: skewX(-20deg); transition: left .6s ease;
+}
+.cta-shine:hover::after { left: 130%; }
+
+/* 料金カード浮遊 */
+.float-card { transition: transform .35s ease, box-shadow .35s ease, border-color .35s; }
+.float-card:hover { transform: translateY(-10px); box-shadow: 0 24px 70px rgba(201,168,106,.22); border-color: #C9A86A; }
+
+/* 人間側の揺れ */
+@keyframes sway { 0%,100% { transform: rotate(-1.2deg) } 50% { transform: rotate(1.2deg) } }
+.sway { animation: sway 3.2s ease-in-out infinite; transform-origin: top center; }
+
+/* 完全自動の発光 */
+@keyframes glowPulse { 0%,100% { text-shadow: 0 0 12px rgba(201,168,106,.4) } 50% { text-shadow: 0 0 28px rgba(201,168,106,.9) } }
+.glow-auto { animation: glowPulse 2.6s ease-in-out infinite; color: #C9A86A; }
+
+/* 先行予約ボタン：発光パルス */
+@keyframes presaleGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,106,0); transform: scale(1); }
+  50% { box-shadow: 0 0 30px 4px rgba(201,168,106,.8); transform: scale(1.04); }
+}
+.presale-hot { animation: presaleGlow 1.618s ease-in-out infinite; }
+
+/* Stripeバッジ跳ね */
+@keyframes bounceSoft { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-5px) } }
+.stripe-bounce { animation: bounceSoft 1.618s ease-in-out infinite; }
+
+/* 重力吸込 */
+@keyframes gravityIn { from { transform: scale(.92); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+.gravity-in { animation: gravityIn .8s ease both; }
