@@ -153,8 +153,9 @@ export default function GatePage() {
           <Reveal className="mx-auto max-w-xl text-center">
             <span className="mb-2 block text-sm tracking-phi text-gold">CONTACT</span>
             <h2 className="text-2xl font-extrabold">お問い合わせ</h2>
-            <p className="mt-3 text-sm text-paper/60">製品のお申込は cryptoEngineページの申込導線から。取材・提携は以下からどうぞ。</p>
-            <form action="mailto:contact@neutron.example" method="post" encType="text/plain" className="mt-8 grid gap-3 text-left">
+            <p className="mt-3 text-sm text-paper/60">製品のお申込は cryptoEngineページの申込導線から。取材・提携は以下からどうぞ。返信先は neutron.aoki@gmail.com です。</p>
+            <p className="mt-2 text-sm"><a href="mailto:neutron.aoki@gmail.com" className="font-bold text-gold underline underline-offset-4">neutron.aoki@gmail.com に直接メールする</a></p>
+            <form action="mailto:neutron.aoki@gmail.com?subject=%E3%80%90Neutron%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B" method="post" encType="text/plain" className="mt-8 grid gap-3 text-left">
               <label className="text-xs tracking-widest text-gold">お名前</label>
               <input name="name" required placeholder="山田 太郎" className="rounded-lg border border-gold/25 bg-deep p-3 text-base md:text-sm" />
               <label className="text-xs tracking-widest text-gold">メールアドレス</label>

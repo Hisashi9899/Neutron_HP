@@ -56,6 +56,11 @@ export function getProduct(slug?: string): Product {
 export const qp = (slug: string) => `?p=${slug}`;
 export const money = (n: number) => "¥" + n.toLocaleString("ja-JP");
 
+// 連絡先: 問い合わせ・申込・契約の全通知先
+export const CONTACT_EMAIL = "neutron.aoki@gmail.com";
+export const CONTACT_MAILTO =
+  "mailto:neutron.aoki@gmail.com?subject=%E3%80%90Neutron%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B";
+
 // 先行予約の締切（JST）。この時刻を過ぎると申込ボタンは「終了」表示に切替わる。
 export const PRESALE_END = "2026-10-16T17:00:00+09:00";
 // 先行予約特典：設置代の割引額（期間中のみ表示・適用）

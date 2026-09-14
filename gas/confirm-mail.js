@@ -5,7 +5,8 @@
 const CONFIG = {
   SENDER_NAME: "Neutron",
   REPLY_TO: "neutron.aoki@gmail.com",
-  TERMS_URL: "https://あなたのドメイン/terms", // ★サイト公開後に置換
+  ADMIN_EMAIL: "neutron.aoki@gmail.com",
+  TERMS_URL: "https://neutron-hp.vercel.app/terms",
   BANK_INFO: "★記入：銀行名／支店名／口座種別／口座番号／口座名義",
   DEPOSIT_NORMAL: 60000,
   DEPOSIT_PRESALE: 50000,
@@ -64,6 +65,14 @@ function onFormSubmit(e) {
     name: CONFIG.SENDER_NAME,
     replyTo: CONFIG.REPLY_TO,
   });
+
+  // 管理者通知: 全申込を neutron.aoki@gmail.com に転送
+  GmailApp.sendEmail(
+    CONFIG.ADMIN_EMAIL,
+    `【通知】${subject}（${name}／${email}）`,
+    [`申込者: ${name}`, `メール: ${email}`, `受付No.${no}`, ``, body].join("\n"),
+    { name: CONFIG.SENDER_NAME }
+  );
 
   // 証跡列の記録（なければ追加）
   const ensureCol = (title) => {
