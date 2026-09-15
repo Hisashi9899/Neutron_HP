@@ -19,8 +19,8 @@ const script = Great_Vibes({
 export const metadata: Metadata = {
   title: "Neutron — 中性子星の密度・真理・美を、プロダクトに。",
   description:
-    "Neutron公式サイト。プロダクト「cryptoEngine（日本初の国産・完全自動・自己改善型トレードエンジン）」を販売しています。",
-  robots: { index: false, follow: false }, // 公開テスト段階：告知開始時に外す
+    "Neutron公式サイト。プロダクト「cryptoEngine（日本初の国産・完全自動可変式トレードエンジン。市場に合わせてギアや銘柄を切り替え、最適解を出し続ける）」を販売しています。",
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,6 +1,6 @@
 # Neutron LP — Next.js + Docker(開発) + Vercel(本番)
 
-日本初の国産・完全自動・自己改善型トレードエンジン `cryptoEngine` 販売LP。
+日本初の国産・完全自動可変式トレードエンジン `cryptoEngine` 販売LP。市場に合わせてギアや銘柄を切り替え、最適解を出し続ける。
 Three.js（中性子星）+ GSAP（黄金比モーション）+ Tailwind。
 
 ## 開発 (Docker + ホットリロード)

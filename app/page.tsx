@@ -88,12 +88,12 @@ export default function GatePage() {
             <a href="/crypto-engine" className="float-card block rounded-2xl border border-gold/40 bg-gradient-to-br from-deep2 via-ink to-navy-900 p-8 md:p-12">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="rounded-full border border-accent/50 bg-accent/10 px-4 py-1 text-[11px] font-bold tracking-widest text-accent-soft">● 先行予約受付中</span>
-                <span className="text-[11px] tracking-phi text-paper/50">日本初・国産・完全自動・自己改善型</span>
+                <span className="text-[11px] tracking-phi text-paper/50">日本初・国産・完全自動可変式</span>
               </div>
               <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">cryptoEngine</h3>
               <p className="mt-3 max-w-2xl text-sm text-paper/70 md:text-base">
                 あなたの代わりに24時間365日、取引し続ける“トレードの頭脳”。
-                感情に流されず、市場の変化に合わせて自分を育て直します。くわしくは専用ページへ。
+                市場に合わせてギアや銘柄を完全自動で切り替え、最適解を出し続けます。くわしくは専用ページへ。
               </p>
               <span className="btn-gold cta-shine mt-7 inline-block rounded-md px-8 py-3 font-bold">cryptoEngineのページへ →</span>
             </a>

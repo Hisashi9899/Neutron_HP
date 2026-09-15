@@ -85,7 +85,7 @@ export default function CryptoEnginePage() {
           <Reveal kind="gravity" className="grid gap-4 md:grid-cols-3">
             {[
               ["注文まで全部やる", "見張り・判断・注文・記録まで全部自動。あなたがチャートを見てポチポチする必要はありません。"],
-              ["自分で育つ", "買い切りの古くなる道具ではありません。市場の変化を学び、中身を育て直します。"],
+              ["完全自動で変わり続ける", "買い切りの古くなる道具ではありません。市場に合わせてギアや銘柄を完全自動で切り替え、最適解を出し続けます。"],
               ["止まらない仕組み", "あなたのパソコンではなく、専用のサーバー上で24時間365日稼働。電源の心配なし。"],
               ["日本の製品", "日本語の申込・契約・お知らせ。海外製ツールの「よくわからない」をなくしました。"],
               ["感情に負けない", "「もっと儲けたい」「損が怖い」に流されません。決めた通りに、毎回同じように動きます。"],
@@ -100,17 +100,17 @@ export default function CryptoEnginePage() {
 
         {/* 3 日本初 */}
         <section className="border-b border-accent/15 py-16">
-          <Reveal kind="left"><H2 no="02 — ここが違う" title="なぜ「日本初」と言えるの？" lead="「自動売買ツール」は前からあります。でも「自分で育ち続ける本番用の頭脳」は、Neutronが初めて製品化しました。" /></Reveal>
+          <Reveal kind="left"><H2 no="02 — ここが違う" title="なぜ「日本初」と言えるの？" lead="「自動売買ツール」は前からあります。でも「市場に合わせてギアや銘柄を変え続ける本番用の頭脳」は、Neutronが初めて製品化しました。" /></Reveal>
           <Reveal kind="right" className="overflow-x-auto rounded-xl border border-accent/25">
             <table className="w-full min-w-[560px] bg-navy-950 text-sm">
               <thead><tr className="bg-accent/10 text-accent-soft">
                 <th className="p-4 text-left">くらべる点</th><th className="p-4 text-left">よくある自動ツール</th><th className="p-4 text-left">cryptoEngine</th>
               </tr></thead>
               <tbody className="[&_td]:border-t [&_td]:border-accent/10 [&_td]:p-4">
-                <tr><td>中身</td><td>買ったときのまま・古くなる</td><td className="font-bold text-accent-soft">学び直して育ち続ける</td></tr>
+                <tr><td>中身</td><td>買ったときのまま・古くなる</td><td className="font-bold text-accent-soft">ギア・銘柄を自動で切り替え続ける</td></tr>
                 <tr><td>得意分野</td><td>なんでも用・株の流用</td><td className="font-bold text-accent-soft">暗号通貨だけの専用設計</td></tr>
                 <tr><td>動く場所</td><td>自宅PC（止まる心配）</td><td className="font-bold text-accent-soft">専用サーバーで24時間</td></tr>
-                <tr><td>改善</td><td>自分で設定変更</td><td className="font-bold text-accent-soft">データ→発見→調整→反映の自動ループ</td></tr>
+                <tr><td>改善</td><td>自分で設定変更</td><td className="font-bold text-accent-soft">計測→判定→切替→記録の自動ループ</td></tr>
                 <tr><td>正体</td><td>ノウハウ販売</td><td className="font-bold text-accent-soft">技術製品（記録つき）</td></tr>
               </tbody>
             </table>
@@ -127,7 +127,7 @@ export default function CryptoEnginePage() {
             </Reveal>
             <Reveal kind="right" className="rounded-xl border border-accent bg-navy-800 p-6 shadow-[0_0_50px_rgba(16,185,129,.15)]">
               <h3 className="mb-3 font-bold text-accent-soft">エンジンに任せると…</h3>
-              <ul className="space-y-2 text-sm"><li><b className="text-accent-soft">感情ゼロ</b>。いつも同じ判断</li><li><b className="text-accent-soft">24時間365日</b>、休まず取引</li><li><b className="text-accent-soft">知識ゼロでOK</b>。覚えることなし</li><li><b className="text-accent-soft">記録つき</b>。あとで見返せる</li><li><b className="text-accent-soft">育ち続ける</b>。相場の変化についていく</li></ul>
+              <ul className="space-y-2 text-sm"><li><b className="text-accent-soft">感情ゼロ</b>。いつも同じ判断</li><li><b className="text-accent-soft">24時間365日</b>、休まず取引</li><li><b className="text-accent-soft">知識ゼロでOK</b>。覚えることなし</li><li><b className="text-accent-soft">記録つき</b>。あとで見返せる</li><li><b className="text-accent-soft">変わり続ける</b>。相場に合わせて最適解を更新</li></ul>
             </Reveal>
           </div>
         </section>
@@ -141,16 +141,16 @@ export default function CryptoEnginePage() {
             ))}
           </Reveal>
           <Reveal className="mt-4 rounded-xl border border-accent/20 bg-navy-800 p-6 text-center">
-            <h3 className="font-bold text-accent-soft">育ち方のループ — 相場が変われば、エンジンも変わる</h3>
+            <h3 className="font-bold text-accent-soft">変わり方のループ — 相場が変われば、ギアも銘柄も変わる</h3>
             <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-sm">
-              {[["① 記録", "値動きを集める"], ["② 発見", "より良い形を探す"], ["③ 調整", "安全に試す"], ["④ 反映", "本番に採用"]].map(([s, d], i, a) => (
+              {[["① 計測", "値動きを集める"], ["② 判定", "より良い形を探す"], ["③ 切替", "安全に試す"], ["④ 記録", "本番に採用"]].map(([s, d], i, a) => (
                 <span key={s} className="flex items-center gap-2">
                   <span className="rounded-full border border-accent/30 bg-accent/10 px-4 py-2" title={d}>{s}</span>
                   {i < a.length - 1 && <i className="not-italic text-accent">→</i>}
                 </span>
               ))}
             </div>
-            <p className="mx-auto mt-4 max-w-xl text-xs text-white/55">この繰り返しがあるから、買った瞬間がピークの道具になりません。みんなの注文が同じ瞬間に重ならない工夫も入っています。</p>
+            <p className="mx-auto mt-4 max-w-xl text-xs text-white/55">この切替があるから、買った瞬間がピークの道具になりません。無限に増え続ける魔法ではなく、その時々の最適解を選び直す仕組みです。みんなの注文が同じ瞬間に重ならない工夫も入っています。</p>
           </Reveal>
         </section>
 
@@ -283,7 +283,7 @@ export default function CryptoEnginePage() {
             <Reveal kind="right" className="float-card rounded-2xl border border-accent/25 bg-navy-950 p-8">
               <span className="rounded-full border border-accent/30 bg-accent/15 px-3 py-1 text-[11px] tracking-widest text-accent-soft">毎月 — 利用料（サーバー代込み）</span>
               <div className="my-2 text-4xl font-extrabold">¥25,000<span className="text-sm"> /月</span></div>
-              <p className="text-sm text-white/70">利用・育成・見守り・お知らせ・領収書・自動更新ぜんぶ込み。</p>
+              <p className="text-sm text-white/70">利用・自動切替・見守り・お知らせ・領収書・自動更新ぜんぶ込み。</p>
             </Reveal>
           </div>
         </section>
@@ -312,7 +312,7 @@ export default function CryptoEnginePage() {
               <li>■ 暗号通貨の値段は動きます。元本や利益のお約束はできません。</li>
               <li>■ 過去の成績が、未来も同じとは限りません。</li>
               <li>■ 「絶対に儲かる」とは言いません。それは本当ではないからです。</li>
-              <li>■ お約束するのは「いつも同じ判断・ぜんぶ記録・育て続けること」の3つです。</li>
+              <li>■ お約束するのは「いつも同じ判断・ぜんぶ記録・相場に合わせて選び直すこと」の3つです。</li>
             </ul>
             <div className="mt-6 rounded-xl border border-accent/25 bg-navy-950 p-6">
               <strong className="text-accent-soft">お申込後の流れ（ぜんぶ自動）</strong>
