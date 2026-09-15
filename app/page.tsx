@@ -93,7 +93,7 @@ export default function GatePage() {
               <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">cryptoEngine</h3>
               <p className="mt-3 max-w-2xl text-sm text-paper/70 md:text-base">
                 あなたの代わりに24時間365日、取引し続ける“トレードの頭脳”。
-                市場に合わせてギアや銘柄を完全自動で切り替え、最適解を出し続けます。くわしくは専用ページへ。
+                市場に合わせてギアや銘柄を完全自動で切り替え、最適解を出し続けます。代表が実資金で検証して創り上げました。くわしくは専用ページへ。
               </p>
               <span className="btn-gold cta-shine mt-7 inline-block rounded-md px-8 py-3 font-bold">cryptoEngineのページへ →</span>
             </a>

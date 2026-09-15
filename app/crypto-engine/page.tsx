@@ -51,7 +51,7 @@ export default function CryptoEnginePage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_500px_at_75%_15%,rgba(16,185,129,.14),transparent_60%),radial-gradient(700px_500px_at_15%_85%,rgba(33,150,243,.12),transparent_60%)]" />
         <div className="relative mx-auto grid max-w-phi items-center gap-10 px-5 py-16 md:grid-cols-[1.618fr_1fr] md:py-24">
           <div>
-            <Badge>製品 cryptoEngine ／ 販売元 Neutron・日本初・国産</Badge>
+            <Badge>製品 cryptoEngine ／ 販売元 Neutron・日本初・国産・代表が実資金で検証</Badge>
             <h1 className="mt-6 text-3xl font-extrabold leading-snug md:text-5xl">
               寝ている間も、仕事中も。<br />あなたの代わりに24時間365日<span className="text-accent-soft">取引する頭脳</span>
             </h1>
@@ -60,6 +60,7 @@ export default function CryptoEnginePage() {
               専門知識は一切いりません。チャートの見方も注文の出し方も、覚える必要なし。
               見張るだけではなく、<b className="text-accent-soft">判断も注文もほったらかし</b>。
               あなたがすることは<b className="text-accent-soft">「申し込むだけ」</b>です。
+              <span className="mt-3 block text-sm text-white/60">代表自ら実資金で検証し、動くものだけを製品化。デモや机上の理論ではありません。</span>
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="/notice?p=cryptoengine" className="cta-shine rounded-md bg-accent px-8 py-3 font-bold text-navy-950 transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(16,185,129,.4)]">今すぐ申し込む</a>
@@ -139,6 +140,10 @@ export default function CryptoEnginePage() {
             {[["速い言語Go", "大量の値動きをさばく"], ["きれいな設計", "壊れにくく直しやすい"], ["CLIエンジン", "余計な飾りなし"], ["専用サーバー", "止まらず動き続ける"]].map(([t, d]) => (
               <div key={t} className="rounded-lg border border-accent/20 bg-navy-950 p-4 text-center text-xs"><b className="mb-1 block text-accent-soft">{t}</b>{d}</div>
             ))}
+          </Reveal>
+          <Reveal className="mt-4 rounded-xl border border-accent bg-navy-800 p-6 text-center shadow-[0_0_50px_rgba(16,185,129,.12)]">
+            <h3 className="font-bold text-accent-soft">代表が実資金で検証 — 机上の理論は売りません</h3>
+            <p className="mx-auto mt-2 max-w-2xl text-sm text-white/70">代表自ら実資金で動かして検証し、トレードエンジンとして成り立つものだけを製品化しました。利益の保証ではありませんが、身銭を切った検証の記録があります。</p>
           </Reveal>
           <Reveal className="mt-4 rounded-xl border border-accent/20 bg-navy-800 p-6 text-center">
             <h3 className="font-bold text-accent-soft">変わり方のループ — 相場が変われば、ギアも銘柄も変わる</h3>
