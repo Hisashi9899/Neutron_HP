@@ -245,7 +245,7 @@ export default function CryptoEnginePage() {
 
         {/* 7 完成形ロジック */}
         <section id="logic-final" className="border-b border-accent/15 py-16">
-          <Reveal><H2 no="07 — 心臓部" title="板を読むエンジン「セブンゲート」" lead="ホンダのVTECが回転数でカムの性格を切り替えるように、このエンジンは相場の天気で振る舞いを切り替えます。中身は「板の流れを読む7つの関所＋注文の大きさを変える無段階ギア＋17銘柄から1つを選ぶ目利き」。監視の網は広く、判断は厳しく。その仕組みをそのままお見せします。" /></Reveal>
+          <Reveal><H2 no="07 — 心臓部" title="板を読むエンジン「セブンゲート」" lead="街乗りと高速で走り方を変えるエンジンのように、このエンジンは相場の天気で振る舞いを切り替えます。中身は「板の流れを読む7つの関所＋注文の大きさを変える無段階ギア＋17銘柄から1つを選ぶ目利き」。監視の網は広く、判断は厳しく。その仕組みをそのままお見せします。" /></Reveal>
           <Reveal className="rounded-xl border border-accent/30 bg-navy-950 p-6 md:p-8">
             <h3 className="font-bold text-accent-soft">7つの関所 — ひとつでも通らなければ進まない</h3>
             <p className="mt-3 text-sm text-white/70">
