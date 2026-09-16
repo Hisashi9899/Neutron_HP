@@ -12,8 +12,8 @@ function H2({ no, title, lead }: { no: string; title: string; lead?: string }) {
   return (
     <div className="mb-8">
       <span className="mb-2 block text-sm tracking-phi text-accent-soft">{no}</span>
-      <h2 className="text-2xl font-extrabold md:text-3xl">{title}</h2>
-      {lead && <p className="mt-2 max-w-2xl text-sm text-white/60 md:text-base">{lead}</p>}
+      <h2 className="text-balance text-2xl font-extrabold md:text-3xl">{title}</h2>
+      {lead && <p className="mt-2 max-w-2xl text-pretty text-sm leading-relaxed text-white/60 md:text-base">{lead}</p>}
     </div>
   );
 }

@@ -58,3 +58,11 @@ body { background: #0A0F2C; color: #F5F7FA; -webkit-font-smoothing: antialiased;
 /* 重力吸込 */
 @keyframes gravityIn { from { transform: scale(.92); opacity: 0 } to { transform: scale(1); opacity: 1 } }
 .gravity-in { animation: gravityIn .8s ease both; }
+
+/* 日本語の改行孤立（本／す。等の1文字残り）防止。全体に適用 */
+p, li, td, th {
+  text-wrap: pretty;
+}
+h1, h2, h3 {
+  text-wrap: balance;
+}
