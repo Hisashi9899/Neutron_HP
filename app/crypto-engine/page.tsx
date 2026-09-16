@@ -51,7 +51,7 @@ export default function CryptoEnginePage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_500px_at_75%_15%,rgba(16,185,129,.14),transparent_60%),radial-gradient(700px_500px_at_15%_85%,rgba(33,150,243,.12),transparent_60%)]" />
         <div className="relative mx-auto grid max-w-phi items-center gap-10 px-5 py-16 md:grid-cols-[1.618fr_1fr] md:py-24">
           <div>
-            <Badge>製品 cryptoEngine ／ 販売元 Neutron・日本初・国産・代表が実資金で検証</Badge>
+            <Badge>製品 cryptoEngine ／ 販売元 Neutron・国産・代表が実資金で検証</Badge>
             <h1 className="mt-6 text-3xl font-extrabold leading-snug md:text-5xl">
               寝ている間も、仕事中も。<br />あなたの代わりに24時間365日<span className="text-accent-soft">取引する頭脳</span>
             </h1>
@@ -99,9 +99,9 @@ export default function CryptoEnginePage() {
           </Reveal>
         </section>
 
-        {/* 2 日本初 */}
+        {/* 2 違い */}
         <section className="border-b border-accent/15 py-16">
-          <Reveal kind="left"><H2 no="02 — ここが違う" title="なぜ「日本初」と言えるの？" lead="「自動売買ツール」は前からあります。でも「市場に合わせてギアや銘柄を変え続ける本番用の頭脳」は、Neutronが初めて製品化しました。" /></Reveal>
+          <Reveal kind="left"><H2 no="02 — ここが違う" title="他と何が違うの？" lead="「自動売買ツール」は前からあります。cryptoEngineが違うのは、市場に合わせてギアや銘柄を変え続ける本番用の頭脳「SEVEN-GATE ENGINE」を搭載している点です。" /></Reveal>
           <Reveal kind="right" className="overflow-x-auto rounded-xl border border-accent/25">
             <table className="w-full min-w-[560px] bg-navy-950 text-sm">
               <thead><tr className="bg-accent/10 text-accent-soft">
@@ -249,7 +249,7 @@ export default function CryptoEnginePage() {
             <SevenGateLogo size={300} />
             <p className="mt-2 text-[11px] tracking-[0.35em] text-accent-soft">NEUTRON ORIGINAL TRADING ENGINE</p>
           </Reveal>
-          <Reveal><H2 no="07 — 心臓部" title="Neutron完全オリジナル・トレードエンジン" lead="名前はSEVEN-GATE ENGINE。街乗りと高速で走り方を変えるエンジンのように、相場の天気で振る舞いを切り替える、Neutronが一から開発した完全オリジナルの頭脳です。中身は「板の流れを読む7つの関所＋注文の大きさを変える無段階ギア＋17銘柄から1つを選ぶ目利き」。たとえるなら散弾銃ではなくスナイパーライフル。監視の網は広く、引き金は一発厳選です。" /></Reveal>
+          <Reveal><H2 no="07 — 心臓部" title="cryptoEngine搭載エンジン「SEVEN-GATE ENGINE」" lead="cryptoEngineの中核として搭載しているトレードエンジンが、Neutronが一から開発した完全オリジナルのSEVEN-GATE ENGINEです。街乗りと高速で走り方を変えるエンジンのように、相場の天気で振る舞いを切り替えます。中身は「板の流れを読む7つの関所＋注文の大きさを変える無段階ギア＋17銘柄から1つを選ぶ目利き」。たとえるなら散弾銃ではなくスナイパーライフル。監視の網は広く、引き金は一発厳選です。" /></Reveal>
           <Reveal className="rounded-xl border border-accent/30 bg-navy-950 p-6 md:p-8">
             <h3 className="font-bold text-accent-soft">7つの関所 — ひとつでも通らなければ進まない</h3>
             <p className="mt-3 text-sm text-white/70">

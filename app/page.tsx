@@ -88,7 +88,7 @@ export default function GatePage() {
             <a href="/crypto-engine" className="float-card block rounded-2xl border border-gold/40 bg-gradient-to-br from-deep2 via-ink to-navy-900 p-8 md:p-12">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="rounded-full border border-accent/50 bg-accent/10 px-4 py-1 text-[11px] font-bold tracking-widest text-accent-soft">● 先行予約受付中</span>
-                <span className="text-[11px] tracking-phi text-paper/50">日本初・国産・完全自動可変式</span>
+                <span className="text-[11px] tracking-phi text-paper/50">国産・完全自動可変式</span>
               </div>
               <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">cryptoEngine</h3>
               <p className="mt-3 max-w-2xl text-sm text-paper/70 md:text-base">
