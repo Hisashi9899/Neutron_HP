@@ -1,5 +1,6 @@
 "use client";
 import NeutronLogo from "../../components/NeutronLogo";
+import SevenGateLogo from "../../components/SevenGateLogo";
 import { Reveal, usePhiReveal } from "../../components/Reveal";
 import { usePresaleActive } from "../../components/usePresaleActive";
 import { PRESALE_DISCOUNT, getProduct, money, qp } from "../../lib/flow";
@@ -245,7 +246,11 @@ export default function CryptoEnginePage() {
 
         {/* 7 完成形ロジック */}
         <section id="logic-final" className="border-b border-accent/15 py-16">
-          <Reveal><H2 no="07 — 心臓部" title="板を読むエンジン「セブンゲート」" lead="街乗りと高速で走り方を変えるエンジンのように、このエンジンは相場の天気で振る舞いを切り替えます。中身は「板の流れを読む7つの関所＋注文の大きさを変える無段階ギア＋17銘柄から1つを選ぶ目利き」。監視の網は広く、判断は厳しく。その仕組みをそのままお見せします。" /></Reveal>
+          <Reveal className="mb-8 flex flex-col items-center text-center">
+            <SevenGateLogo size={300} />
+            <p className="mt-2 text-[11px] tracking-[0.35em] text-accent-soft">NEUTRON ORIGINAL TRADING ENGINE</p>
+          </Reveal>
+          <Reveal><H2 no="07 — 心臓部" title="Neutron完全オリジナル・トレードエンジン" lead="名前はSEVEN-GATE ENGINE。街乗りと高速で走り方を変えるエンジンのように、相場の天気で振る舞いを切り替える、Neutronが一から開発した完全オリジナルの頭脳です。中身は「板の流れを読む7つの関所＋注文の大きさを変える無段階ギア＋17銘柄から1つを選ぶ目利き」。たとえるなら散弾銃ではなくスナイパーライフル。監視の網は広く、引き金は一発厳選です。" /></Reveal>
           <Reveal className="rounded-xl border border-accent/30 bg-navy-950 p-6 md:p-8">
             <h3 className="font-bold text-accent-soft">7つの関所 — ひとつでも通らなければ進まない</h3>
             <p className="mt-3 text-sm text-white/70">
