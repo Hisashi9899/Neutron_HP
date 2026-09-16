@@ -3,11 +3,10 @@ import NeutronLogo from "../../components/NeutronLogo";
 import SevenGateLogo from "../../components/SevenGateLogo";
 import { Reveal, usePhiReveal } from "../../components/Reveal";
 import { usePresaleActive } from "../../components/usePresaleActive";
-import { PRESALE_DISCOUNT, getProduct, money, qp } from "../../lib/flow";
+import { PRESALE_DISCOUNT, getProduct, money } from "../../lib/flow";
 
 const PRODUCT_SLUG = "cryptoengine";
 const p = getProduct(PRODUCT_SLUG);
-const STRIPE_SUB = p.stripeUrl;
 
 function H2({ no, title, lead }: { no: string; title: string; lead?: string }) {
   return (
@@ -405,10 +404,6 @@ export default function CryptoEnginePage() {
             <Badge>先着80名・完全限定 — 満枠で締切</Badge>
             <h2 className="mt-4 text-2xl font-extrabold md:text-3xl">枠が埋まる前に申し込む</h2>
             <p className="mx-auto mt-3 max-w-xl text-sm text-white/60">申込は3分で完了。むずかしい設置は販売元が代行します。先着80名・満枠で締切です。</p>
-            <div className="mt-6 flex flex-wrap justify-center gap-4">
-              <a href={`/notice${qp(PRODUCT_SLUG)}`} className="cta-shine rounded-md bg-accent px-8 py-3 font-bold text-navy-950 transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(16,185,129,.45)]">申込む（設置代案内へ）</a>
-              <a href={STRIPE_SUB} target="_blank" rel="noopener" className="rounded-md border border-accent/50 px-8 py-3 transition hover:border-accent hover:text-accent-soft">月額の登録（利用料）</a>
-            </div>
             <div className="mx-auto mt-8 grid max-w-md gap-3 text-center">
               <a href={p.formUrl} target="_blank" rel="noopener" className="cta-shine rounded-md bg-accent py-3 font-bold text-navy-950">80名の枠に申し込む（Googleフォーム）</a>
               <p className="text-center text-xs text-white/50">送信後、契約とお支払いのご案内が自動で届きます。</p>
