@@ -245,12 +245,12 @@ export default function CryptoEnginePage() {
 
         {/* 7 完成形ロジック */}
         <section id="logic-final" className="border-b border-accent/15 py-16">
-          <Reveal><H2 no="07 — 完成形" title="最終ロジックは、こう動いています" lead="ここがこのページの核心です。cryptoEngineの頭脳は「板の流れを読む7段階の関所＋大きさを自動で変えるギア＋17銘柄から1つを選ぶ目利き」でできています。たとえるなら散弾銃ではなくスナイパーライフル。監視の網は広く、引き金は一発厳選です。" /></Reveal>
+          <Reveal><H2 no="07 — 心臓部" title="板を読むエンジン「セブンゲート」" lead="ホンダのVTECが回転数でカムの性格を切り替えるように、このエンジンは相場の天気で振る舞いを切り替えます。中身は「板の流れを読む7つの関所＋注文の大きさを変える無段階ギア＋17銘柄から1つを選ぶ目利き」。監視の網は広く、判断は厳しく。その仕組みをそのままお見せします。" /></Reveal>
           <Reveal className="rounded-xl border border-accent/30 bg-navy-950 p-6 md:p-8">
-            <h3 className="font-bold text-accent-soft">7段階の関所 — 1つでも通らなければ撃たない</h3>
+            <h3 className="font-bold text-accent-soft">7つの関所 — ひとつでも通らなければ進まない</h3>
             <p className="mt-3 text-sm text-white/70">
               5秒ごとに17銘柄の注文の板を全部読み、7つの関所を順に通します。
-              どこかで「ダメ」と出たらその場で休みます。だから無駄撃ちがありません。
+              どこかで「ダメ」と出たらその場で休みます。だから無駄な注文が出ません。
             </p>
             <ol className="mt-4 space-y-2 text-sm text-white/75">
               <li><b className="text-accent-soft">関所1「急変・薄板チェック」</b> — 値が跳んだ直後や、注文が薄すぎる時は即お休み（約10秒）。事故りそうな時は近づきません。</li>
@@ -258,13 +258,13 @@ export default function CryptoEnginePage() {
               <li><b className="text-accent-soft">関所3「切り替わり直後の様子見」</b> — 天気が変わった直後は30秒お休み。慌てて飛びつかず、往復ビンタ（行ったり来たりの負け）を防ぎます。</li>
               <li><b className="text-accent-soft">関所4「方向の裏取り」</b> — 「価格の傾き」と「注文の流れ」が両方同じ方向を向いた時だけ進みます。片方だけでは進みません。ダマシの値動きはここで落ちます。</li>
               <li><b className="text-accent-soft">関所5「自信の補正」</b> — その場の自信を、過去の的中実績で割り引きます。実績が少ないうちは控えめに。過信しない仕組みです。</li>
-              <li><b className="text-accent-soft">関所6「手数料の壁」</b> — 「手数料の3倍以上の見込み」がない取引は捨てます。薄利の乱れ撃ちは手数料負けするので、構造的に禁止しています。</li>
-              <li><b className="text-accent-soft">関所7「上限と冷却」</b> — 保有は同時に1つまで、銘柄ごとに休憩時間を設けます。熱くなって連打できません。</li>
+            <li><b className="text-accent-soft">関所6「手数料の壁」</b> — 「手数料の3倍以上の見込み」がない取引は捨てます。薄利の乱れ撃ちは手数料負けするので、構造上通れません。</li>
+            <li><b className="text-accent-soft">関所7「上限と冷却」</b> — 保有は同時に1つまで、銘柄ごとに休憩時間を設けます。熱くなっての連打はできない構造です。</li>
             </ol>
           </Reveal>
           <Reveal kind="gravity" className="mt-6 grid gap-4 md:grid-cols-2">
             <div className="rounded-xl border border-accent/20 bg-navy-800 p-6">
-              <h3 className="mb-2 font-bold text-accent-soft">ギアは無段階 — 大きさが自動で変わる</h3>
+              <h3 className="mb-2 font-bold text-accent-soft">無段階ギア — 大きさが自動で変わる</h3>
               <p className="text-sm text-white/70">
                 注文の大きさは毎回コンピュータが計算します。自信が高いほど大きく（0.5〜1.5倍）、
                 板が荒れている時は小さく（最大で4分の1まで減速）、口座のお金の2割を超える注文は出しません。
@@ -272,7 +272,7 @@ export default function CryptoEnginePage() {
               </p>
             </div>
             <div className="rounded-xl border border-accent/20 bg-navy-800 p-6">
-              <h3 className="mb-2 font-bold text-accent-soft">17銘柄から毎回1つだけ選ぶ</h3>
+              <h3 className="mb-2 font-bold text-accent-soft">17銘柄から毎回ひとつだけ選ぶ目利き</h3>
               <p className="text-sm text-white/70">
                 対象はGMOコインの現物17銘柄ぜんぶ。5秒ごとに全部調べて、
                 条件を満たした中で「いちばん自信が高い1つ」だけ撃ちます。
