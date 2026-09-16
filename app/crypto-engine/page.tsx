@@ -1,4 +1,5 @@
 "use client";
+import type { ReactNode } from "react";
 import NeutronLogo from "../../components/NeutronLogo";
 import SevenGateLogo from "../../components/SevenGateLogo";
 import { Reveal, usePhiReveal } from "../../components/Reveal";
@@ -8,7 +9,7 @@ import { PRESALE_DISCOUNT, getProduct, money } from "../../lib/flow";
 const PRODUCT_SLUG = "cryptoengine";
 const p = getProduct(PRODUCT_SLUG);
 
-function H2({ no, title, lead }: { no: string; title: string; lead?: string }) {
+function H2({ no, title, lead }: { no: string; title: string; lead?: ReactNode }) {
   return (
     <div className="mb-8">
       <span className="mb-2 block text-sm tracking-phi text-accent-soft">{no}</span>
@@ -101,7 +102,7 @@ export default function CryptoEnginePage() {
 
         {/* 2 違い */}
         <section className="border-b border-accent/15 py-16">
-          <Reveal kind="left"><H2 no="02 — ここが違う" title="他と何が違うの？" lead="「自動売買ツール」は前からあります。cryptoEngineが違うのは、市場に合わせてギアや銘柄を変え続ける本番用の頭脳「SEVEN-GATE ENGINE」を搭載している点です。" /></Reveal>
+          <Reveal kind="left"><H2 no="02 — ここが違う" title="他と何が違うの？" lead={<>「自動売買ツール」は前からあります。<span className="inline-block">cryptoEngineが違うのは、</span><span className="inline-block">市場に合わせてギアや銘柄を変え続ける</span><span className="inline-block">本番用の頭脳「SEVEN-GATE&nbsp;ENGINE」を</span><span className="inline-block">搭載している点です。</span></>} /></Reveal>
           <Reveal kind="right" className="overflow-x-auto rounded-xl border border-accent/25">
             <table className="w-full min-w-[560px] bg-navy-950 text-sm">
               <thead><tr className="bg-accent/10 text-accent-soft">
