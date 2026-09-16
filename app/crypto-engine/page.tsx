@@ -71,7 +71,7 @@ export default function CryptoEnginePage() {
                 先行予約特典：設置代 {money(PRESALE_DISCOUNT)}引き（9/17〜10/16 17:00）→
               </a>
             )}
-            <p className="mt-4 text-xs text-white/50">申込 → 契約 → 決済 → あとは販売元のNeutronが設置 → 動き出します。毎日の操作は不要です。※利益の保証ではありません。リスクは10で正直にお伝えします。</p>
+            <p className="mt-4 text-xs text-white/50">申込 → 契約 → 決済 → あとは販売元のNeutronが設置 → 動き出します。毎日の操作は不要です。※利益の保証ではありません。リスクは11で正直にお伝えします。</p>
           </div>
           <div className="flex items-center justify-center rounded-2xl border border-accent/25 bg-navy-950/70 p-8 md:p-10">
             <img src="/logo/vtwin-engine.svg" alt="cryptoEngine" className="w-full max-w-[420px]" />
@@ -238,14 +238,74 @@ export default function CryptoEnginePage() {
             <p className="mx-auto max-w-2xl text-sm text-white/75 md:text-base">
               当てにいかない。優位がない時は休む。損失には天井を設ける。<br />
               <b className="text-accent-soft">プロの規律を、統計学で、感情ゼロで回す。</b>それがcryptoEngineの正体です。<br />
-              <span className="text-xs text-white/50">※それでも値動きのリスクはゼロになりません。利益の保証はできません（10で正直にお伝えします）。</span>
+              <span className="text-xs text-white/50">※それでも値動きのリスクはゼロになりません。利益の保証はできません（11で正直にお伝えします）。</span>
             </p>
           </Reveal>
         </section>
 
-        {/* 7 フロー */}
+        {/* 7 完成形ロジック */}
+        <section id="logic-final" className="border-b border-accent/15 py-16">
+          <Reveal><H2 no="07 — 完成形" title="最終ロジックは、こう動いています" lead="ここがこのページの核心です。cryptoEngineの頭脳は「板の流れを読む7段階の関所＋大きさを自動で変えるギア＋17銘柄から1つを選ぶ目利き」でできています。たとえるなら散弾銃ではなくスナイパーライフル。監視の網は広く、引き金は一発厳選です。" /></Reveal>
+          <Reveal className="rounded-xl border border-accent/30 bg-navy-950 p-6 md:p-8">
+            <h3 className="font-bold text-accent-soft">7段階の関所 — 1つでも通らなければ撃たない</h3>
+            <p className="mt-3 text-sm text-white/70">
+              5秒ごとに17銘柄の注文の板を全部読み、7つの関所を順に通します。
+              どこかで「ダメ」と出たらその場で休みます。だから無駄撃ちがありません。
+            </p>
+            <ol className="mt-4 space-y-2 text-sm text-white/75">
+              <li><b className="text-accent-soft">関所1「急変・薄板チェック」</b> — 値が跳んだ直後や、注文が薄すぎる時は即お休み（約10秒）。事故りそうな時は近づきません。</li>
+              <li><b className="text-accent-soft">関所2「相場の天気予報」</b> — 直近20回分の値動きを統計で「上昇・下降・横ばい・荒れ・凪・反転・不明」の7つに分類。凪と不明の日は参加しません。</li>
+              <li><b className="text-accent-soft">関所3「切り替わり直後の様子見」</b> — 天気が変わった直後は30秒お休み。慌てて飛びつかず、往復ビンタ（行ったり来たりの負け）を防ぎます。</li>
+              <li><b className="text-accent-soft">関所4「方向の裏取り」</b> — 「価格の傾き」と「注文の流れ」が両方同じ方向を向いた時だけ進みます。片方だけでは進みません。ダマシの値動きはここで落ちます。</li>
+              <li><b className="text-accent-soft">関所5「自信の補正」</b> — その場の自信を、過去の的中実績で割り引きます。実績が少ないうちは控えめに。過信しない仕組みです。</li>
+              <li><b className="text-accent-soft">関所6「手数料の壁」</b> — 「手数料の3倍以上の見込み」がない取引は捨てます。薄利の乱れ撃ちは手数料負けするので、構造的に禁止しています。</li>
+              <li><b className="text-accent-soft">関所7「上限と冷却」</b> — 保有は同時に1つまで、銘柄ごとに休憩時間を設けます。熱くなって連打できません。</li>
+            </ol>
+          </Reveal>
+          <Reveal kind="gravity" className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="rounded-xl border border-accent/20 bg-navy-800 p-6">
+              <h3 className="mb-2 font-bold text-accent-soft">ギアは無段階 — 大きさが自動で変わる</h3>
+              <p className="text-sm text-white/70">
+                注文の大きさは毎回コンピュータが計算します。自信が高いほど大きく（0.5〜1.5倍）、
+                板が荒れている時は小さく（最大で4分の1まで減速）、口座のお金の2割を超える注文は出しません。
+                たとえば口座に5,000円なら1回の上限は約1,000円。だから一発で大損しません。
+              </p>
+            </div>
+            <div className="rounded-xl border border-accent/20 bg-navy-800 p-6">
+              <h3 className="mb-2 font-bold text-accent-soft">17銘柄から毎回1つだけ選ぶ</h3>
+              <p className="text-sm text-white/70">
+                対象はGMOコインの現物17銘柄ぜんぶ。5秒ごとに全部調べて、
+                条件を満たした中で「いちばん自信が高い1つ」だけ撃ちます。
+                持っている銘柄の買い増しや、持っていない銘柄の空売りはしません。
+                長く持ちすぎた建玉（約5分超）は時間切れで自動決済します。
+              </p>
+            </div>
+          </Reveal>
+          <Reveal kind="left" className="mt-6 overflow-x-auto rounded-xl border border-accent/25">
+            <table className="w-full min-w-[680px] bg-navy-950 text-sm">
+              <thead><tr className="bg-accent/10 text-accent-soft">
+                <th className="p-4 text-left">相場の天気</th><th className="p-4 text-left">ねらい</th><th className="p-4 text-left">持ち時間の目安</th><th className="p-4 text-left">参加条件</th>
+              </tr></thead>
+              <tbody className="[&_td]:border-t [&_td]:border-accent/10 [&_td]:p-4 [&_td]:align-top">
+                <tr><td className="font-bold text-accent-soft">上昇・下降トレンド</td><td>流れに乗る</td><td>30秒〜5分</td><td>自信0.45以上・ゆがみ0.30以上</td></tr>
+                <tr><td className="font-bold text-accent-soft">横ばい（レンジ）</td><td>小さく獲る</td><td>15秒〜・休憩30秒</td><td>自信0.60以上・ゆがみ0.50以上</td></tr>
+                <tr><td className="font-bold text-accent-soft">荒れ相場</td><td>短期決戦のみ</td><td>10秒〜・休憩30秒</td><td>自信0.55以上・ゆがみ0.40以上</td></tr>
+                <tr><td className="font-bold text-accent-soft">反転の兆し</td><td>慎重に逆張り</td><td>20秒〜・休憩60秒</td><td>自信0.55以上（実績100件までは0.65）</td></tr>
+                <tr><td>凪・不明</td><td>—（お休み）—</td><td>—</td><td className="text-white/60">参加しません</td></tr>
+              </tbody>
+            </table>
+          </Reveal>
+          <Reveal className="mt-6 rounded-xl border border-accent/30 bg-navy-950 p-6 text-center">
+            <p className="mx-auto max-w-2xl text-sm text-white/75 md:text-base">
+              約定が少ない日があるのは正常です。<b className="text-accent-soft">撃たなかった候補の記録も残し</b>、週ごとの検証で「あの見送りは正しかったか」を測り続けます。<br />
+              <span className="text-xs text-white/50">※相場が静かな日は1件も撃たないことがあります。それが手数料負けを防ぐ設計です。利益の保証はできません。</span>
+            </p>
+          </Reveal>
+        </section>
+
+        {/* 8 フロー */}
         <section id="flow" className="border-b border-accent/15 py-16">
-          <Reveal><H2 no="07 — 申し込むだけ" title="7ステップ・あなたは3つだけ" lead="むずかしい設置は販売元のNeutronが代行。あなたは申込・契約・お支払いの3つだけです。" /></Reveal>
+          <Reveal><H2 no="08 — 申し込むだけ" title="7ステップ・あなたは3つだけ" lead="むずかしい設置は販売元のNeutronが代行。あなたは申込・契約・お支払いの3つだけです。" /></Reveal>
           <div className="grid grid-cols-2 gap-2 md:grid-cols-7">
             {(
             [
@@ -265,9 +325,9 @@ export default function CryptoEnginePage() {
           <p className="glow-auto mt-6 text-center text-xl font-extrabold tracking-widest text-accent-soft">完全自動</p>
         </section>
 
-        {/* 8 料金 */}
+        {/* 9 料金 */}
         <section id="price" className="border-b border-accent/15 py-16">
-          <Reveal><H2 no="08 — お金のはなし" title="料金は2つだけ。追加請求なし" lead="サーバー代込み。あとから「あれもこれも」と請求されることはありません。" /></Reveal>
+          <Reveal><H2 no="09 — お金のはなし" title="料金は2つだけ。追加請求なし" lead="サーバー代込み。あとから「あれもこれも」と請求されることはありません。" /></Reveal>
           <div className="grid gap-4 md:grid-cols-[1.618fr_1fr]">
             <Reveal kind="left" className="float-card rounded-2xl border border-accent bg-gradient-to-b from-navy-800 to-navy-950 p-8">
               <span className="rounded-full border border-accent/30 bg-accent/15 px-3 py-1 text-[11px] tracking-widest text-accent-soft">最初だけ — 設置代</span>
@@ -293,9 +353,9 @@ export default function CryptoEnginePage() {
           </div>
         </section>
 
-        {/* 9 制限 */}
+        {/* 10 制限 */}
         <section className="border-b border-accent/15 py-16">
-          <Reveal kind="gravity"><H2 no="09 — 人数制限のわけ" title="先着80名で、完全限定です" lead="81人目はお受けできません。10名ずつのグループ（A→B→C…→H）でご案内し、80名に到達したら締め切ります。" /></Reveal>
+          <Reveal kind="gravity"><H2 no="10 — 人数制限のわけ" title="先着80名で、完全限定です" lead="81人目はお受けできません。10名ずつのグループ（A→B→C…→H）でご案内し、80名に到達したら締め切ります。" /></Reveal>
           <Reveal kind="gravity" className="grid gap-4 md:grid-cols-2">
             <div className="rounded-xl border border-accent/20 bg-navy-800 p-6 text-sm">
               <h3 className="mb-2 font-bold text-accent-soft">80名の理由＝市場へのやさしさ</h3>
@@ -309,9 +369,9 @@ export default function CryptoEnginePage() {
           </Reveal>
         </section>
 
-        {/* 10 リスク */}
+        {/* 11 リスク */}
         <section className="border-b border-accent/15 py-16">
-          <Reveal><H2 no="10 — 正直なおはなし" title="リスクとお約束" /></Reveal>
+          <Reveal><H2 no="11 — 正直なおはなし" title="リスクとお約束" /></Reveal>
           <div className="border-l-2 border-accent pl-6 text-sm text-white/75">
             <ul className="space-y-2">
               <li>■ 暗号通貨の値段は動きます。元本や利益のお約束はできません。</li>
@@ -334,7 +394,7 @@ export default function CryptoEnginePage() {
           </div>
         </section>
 
-        {/* 10 CTA */}
+        {/* 12 CTA */}
         <section id="apply" className="py-16">
           <div className="rounded-2xl border border-accent bg-navy-950/80 p-8 text-center shadow-[0_0_80px_rgba(16,185,129,.12)] md:p-12">
             <Badge>先着80名・完全限定 — 満枠で締切</Badge>
