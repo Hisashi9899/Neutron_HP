@@ -80,9 +80,9 @@ export default function CryptoEnginePage() {
       </header>
 
       <div className="mx-auto max-w-phi px-5">
-        {/* 2 とは */}
+        {/* 1 とは */}
         <section className="border-b border-accent/15 py-16">
-          <Reveal><H2 no="01 — 3分でわかる" title="cryptoEngineって、なに？" lead="むずかしい言葉なしで説明します。たとえるなら、取引の“自動運転”。一度スイッチを入れたら、ハンドルもアクセルもブレーキも全部おまかせ。あなたは助手席で見守るだけです。" /></Reveal>
+          <Reveal><H2 no="01 — 3分でわかる" title="cryptoEngineって、なに？" lead="むずかしい言葉なしで説明します。たとえるなら、取引の“自動運転”。申し込んだら、ハンドルもアクセルもブレーキも全部おまかせ。あなたは助手席で見守るだけです。" /></Reveal>
           <Reveal kind="gravity" className="grid gap-4 md:grid-cols-3">
             {[
               ["注文まで全部やる", "見張り・判断・注文・記録まで全部自動。あなたがチャートを見てポチポチする必要はありません。"],
@@ -99,7 +99,7 @@ export default function CryptoEnginePage() {
           </Reveal>
         </section>
 
-        {/* 3 日本初 */}
+        {/* 2 日本初 */}
         <section className="border-b border-accent/15 py-16">
           <Reveal kind="left"><H2 no="02 — ここが違う" title="なぜ「日本初」と言えるの？" lead="「自動売買ツール」は前からあります。でも「市場に合わせてギアや銘柄を変え続ける本番用の頭脳」は、Neutronが初めて製品化しました。" /></Reveal>
           <Reveal kind="right" className="overflow-x-auto rounded-xl border border-accent/25">
@@ -118,7 +118,7 @@ export default function CryptoEnginePage() {
           </Reveal>
         </section>
 
-        {/* 4 比較 */}
+        {/* 3 比較 */}
         <section className="border-b border-accent/15 py-16">
           <Reveal><H2 no="03 — あなた vs エンジン" title="人間と、どう違う？" /></Reveal>
           <div className="grid gap-4 md:grid-cols-2">
@@ -133,7 +133,7 @@ export default function CryptoEnginePage() {
           </div>
         </section>
 
-        {/* 5 仕組み */}
+        {/* 4 仕組み */}
         <section id="arch" className="border-b border-accent/15 py-16">
           <Reveal><H2 no="04 — 安心の裏側" title="どんな仕組みで動くの？" lead="むずかしい部分は販売元のNeutronが全部引き受けます。ここでは「信頼できる理由」だけ、やさしく紹介します。" /></Reveal>
           <Reveal kind="gravity" className="grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -161,7 +161,7 @@ export default function CryptoEnginePage() {
 
         {/* 5 市場選択 */}
         <section id="market" className="border-b border-accent/15 py-16">
-          <Reveal><H2 no="05 — 市場選択" title="なぜ、暗号通貨なのか" lead="株・FX・不動産・NISA——投資は色々あります。その中で「24時間365日の完全自動化」との相性が最も良い市場を選びました。理由は5つの合理性です。" /></Reveal>
+          <Reveal><H2 no="05 — 市場選択" title="なぜ、暗号通貨なのか" lead="株・FX・不動産・NISA——投資は色々あります。その中で「24時間365日の完全自動化」との相性が最も良い市場を選びました。下の表で5種類を比べています。" /></Reveal>
           <Reveal kind="gravity" className="overflow-x-auto rounded-xl border border-accent/25">
             <table className="w-full min-w-[680px] bg-navy-950 text-sm">
               <thead><tr className="bg-accent/10 text-accent-soft">
@@ -309,7 +309,7 @@ export default function CryptoEnginePage() {
 
         {/* 8 フロー */}
         <section id="flow" className="border-b border-accent/15 py-16">
-          <Reveal><H2 no="08 — 申し込むだけ" title="7ステップ・あなたは3つだけ" lead="むずかしい設置は販売元のNeutronが代行。あなたは申込・契約・お支払いの3つだけです。" /></Reveal>
+          <Reveal><H2 no="08 — 申し込むだけ" title="7ステップ・あなたは4つだけ" lead="むずかしい設置は販売元のNeutronが代行。あなたは申込・契約・お支払い2回の4つだけです。" /></Reveal>
           <div className="grid grid-cols-2 gap-2 md:grid-cols-7">
             {(
             [
