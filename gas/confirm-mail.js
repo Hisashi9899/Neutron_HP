@@ -198,6 +198,7 @@ function syncReplies() {
       return m ? m[0].toLowerCase() : "";
     };
     let repliedAt = null;
+    let repliedThread = null;
     for (const th of threads) {
       for (const msg of th.getMessages()) {
         const sender = addrOf(msg.getFrom());
@@ -205,6 +206,7 @@ function syncReplies() {
         if (selfAddrs.indexOf(sender) >= 0) continue;
         if (msg.getDate().getTime() <= sentMs) continue;
         repliedAt = msg.getDate();
+        repliedThread = th;
         break;
       }
       if (repliedAt) break;
@@ -213,6 +215,15 @@ function syncReplies() {
     const name = cName >= 0 ? String(sheet.getRange(row, cName + 1).getValue() || "") : "";
     sheet.getRange(row, cReplyAt).setValue(fmtDT(repliedAt));
     sheet.getRange(row, cStatus).setValue(CONFIG.STATUS_CONFIRMED);
+    // 証拠保全: 同意スレッドにラベルを付けてGmail上で抜き出せるようにする。
+    try {
+      const labelName = "Neutron/同意済み";
+      const label =
+        GmailApp.getUserLabelByName(labelName) || GmailApp.createLabel(labelName);
+      if (repliedThread) repliedThread.addLabel(label);
+    } catch (err) {
+      // ラベル付与の失敗は状態更新を阻害しない
+    }
     GmailApp.sendEmail(
       CONFIG.ADMIN_EMAIL,
       `【通知】同意返信あり・正式申込完了（${name}／${email}）`,
