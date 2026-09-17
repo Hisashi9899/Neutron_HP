@@ -25,6 +25,31 @@ function onFormSubmit(e) {
   const name = val("氏名");
   const email = val("メールアドレス");
   if (!email) return; // メアドなしは送信不可
+  // 重複申込の検出: 同一メアドの先行行があれば重複として扱う。
+  // 先着順は最初の行の受付No.を維持し、確認メールの二重送信も防ぐ。
+  const mailCol = headers.indexOf("メールアドレス");
+  if (mailCol >= 0 && row > 2) {
+    const prior = sheet.getRange(2, mailCol + 1, row - 2, 1).getValues().flat();
+    if (prior.includes(email)) {
+      const dupCol = (() => {
+        let i = headers.indexOf("重複");
+        if (i < 0) {
+          sheet.getRange(1, sheet.getLastColumn() + 1).setValue("重複");
+          headers.push("重複");
+          i = headers.length - 1;
+        }
+        return i + 1;
+      })();
+      sheet.getRange(row, dupCol).setValue("重複（2回目以降）");
+      GmailApp.sendEmail(
+        CONFIG.ADMIN_EMAIL,
+        `【通知】重複申込（${name}／${email}）`,
+        [`重複申込を検出しました（行 ${row}）。`, `申込者: ${name}`, `メール: ${email}`, `先着判定は最初の行を維持してください。`].join("\n"),
+        { name: CONFIG.SENDER_NAME }
+      );
+      return;
+    }
+  }
   const no = row - 1; // 先着No.（ヘッダー行を除く）
   const now = new Date();
   const presale = now < CONFIG.PRESALE_END;
