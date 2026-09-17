@@ -179,8 +179,9 @@ function syncReplies() {
     const no = cNo > 0 ? String(sheet.getRange(row, cNo).getValue() || "") : "";
     const sentAt = cMailAt > 0 ? sheet.getRange(row, cMailAt).getValue() : null;
     const sentMs = sentAt instanceof Date ? sentAt.getTime() : 0;
-    // 件名に受付No.を含むスレッドを申込者発で検索する。
-    const q = `from:${email} subject:"受付No.${no}" newer_than:30d`;
+    // 件名に受付No.を含むスレッドを検索する（送信者の絞り込みは
+    // コード側の厳密判定に任せ、Gmail検索の曖昧さに依存しない）。
+    const q = `subject:"受付No.${no}" newer_than:30d`;
     let threads = [];
     try {
       threads = GmailApp.search(q, 0, 10);
@@ -189,7 +190,6 @@ function syncReplies() {
     }
     // 送信者アドレスの厳密一致で判定する（Gmailの from: 検索は
     // 前方一致気味に拾うため、自送の管理者通知への誤マッチをここで排除）。
-    // 自分（管理者アドレス）発のメールは返信とみなさない。
     const selfAddrs = [CONFIG.ADMIN_EMAIL, CONFIG.REPLY_TO].map((a) =>
       String(a || "").toLowerCase()
     );
@@ -197,14 +197,28 @@ function syncReplies() {
       const m = String(fromHeader || "").match(/[\w.+-]+@[\w.-]+\.\w+/);
       return m ? m[0].toLowerCase() : "";
     };
+    const plainOf = (msg) => {
+      try {
+        return String(msg.getPlainBody() || "");
+      } catch (err) {
+        return "";
+      }
+    };
     let repliedAt = null;
     let repliedThread = null;
     for (const th of threads) {
       for (const msg of th.getMessages()) {
         const sender = addrOf(msg.getFrom());
-        if (!sender || sender !== email.toLowerCase()) continue;
-        if (selfAddrs.indexOf(sender) >= 0) continue;
+        if (!sender) continue;
         if (msg.getDate().getTime() <= sentMs) continue;
+        const isApplicant =
+          sender === email.toLowerCase() && selfAddrs.indexOf(sender) < 0;
+        if (!isApplicant) {
+          // 運用者自身の返信は「同意します」を含む場合のみ手動承認として受理する。
+          // 申込メアドのtypo等で本人返信が不能な場合の裏口。本番運用では濫用注意。
+          if (selfAddrs.indexOf(sender) < 0) continue;
+          if (plainOf(msg).indexOf("同意します") < 0) continue;
+        }
         repliedAt = msg.getDate();
         repliedThread = th;
         break;
