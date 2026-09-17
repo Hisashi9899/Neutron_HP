@@ -4,7 +4,7 @@ import NeutronLogo from "../../components/NeutronLogo";
 import SevenGateLogo from "../../components/SevenGateLogo";
 import { Reveal, usePhiReveal } from "../../components/Reveal";
 import { usePresaleActive } from "../../components/usePresaleActive";
-import { PRESALE_DISCOUNT, getProduct, money } from "../../lib/flow";
+import { PRESALE_DISCOUNT, getProduct, money, qp } from "../../lib/flow";
 
 const PRODUCT_SLUG = "cryptoengine";
 const p = getProduct(PRODUCT_SLUG);
@@ -406,8 +406,8 @@ export default function CryptoEnginePage() {
             <h2 className="mt-4 text-2xl font-extrabold md:text-3xl">枠が埋まる前に申し込む</h2>
             <p className="mx-auto mt-3 max-w-xl text-sm text-white/60">申込は3分で完了。むずかしい設置は販売元が代行します。先着80名・満枠で締切です。</p>
             <div className="mx-auto mt-8 grid max-w-md gap-3 text-center">
-              <a href={p.formUrl} target="_blank" rel="noopener" className="cta-shine rounded-md bg-accent py-3 font-bold text-navy-950">80名の枠に申し込む（Googleフォーム）</a>
-              <p className="text-center text-xs text-white/50">送信後、契約とお支払いのご案内が自動で届きます。</p>
+              <a href={`/notice${qp(PRODUCT_SLUG)}`} className="cta-shine rounded-md bg-accent py-3 font-bold text-navy-950">80名の枠に申し込む</a>
+              <p className="text-center text-xs text-white/50">注意事項→Googleフォーム→確認メールの同意返信の順です。フォーム記入は1回だけです。</p>
             </div>
           </div>
         </section>
