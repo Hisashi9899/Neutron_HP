@@ -187,11 +187,22 @@ function syncReplies() {
     } catch (err) {
       continue;
     }
+    // 送信者アドレスの厳密一致で判定する（Gmailの from: 検索は
+    // 前方一致気味に拾うため、自送の管理者通知への誤マッチをここで排除）。
+    // 自分（管理者アドレス）発のメールは返信とみなさない。
+    const selfAddrs = [CONFIG.ADMIN_EMAIL, CONFIG.REPLY_TO].map((a) =>
+      String(a || "").toLowerCase()
+    );
+    const addrOf = (fromHeader) => {
+      const m = String(fromHeader || "").match(/[\w.+-]+@[\w.-]+\.\w+/);
+      return m ? m[0].toLowerCase() : "";
+    };
     let repliedAt = null;
     for (const th of threads) {
       for (const msg of th.getMessages()) {
-        const from = String(msg.getFrom() || "").toLowerCase();
-        if (from.indexOf(email.toLowerCase()) < 0) continue;
+        const sender = addrOf(msg.getFrom());
+        if (!sender || sender !== email.toLowerCase()) continue;
+        if (selfAddrs.indexOf(sender) >= 0) continue;
         if (msg.getDate().getTime() <= sentMs) continue;
         repliedAt = msg.getDate();
         break;
