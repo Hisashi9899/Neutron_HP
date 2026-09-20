@@ -54,10 +54,10 @@ export default function CryptoEnginePage() {
           <div>
             <Badge>製品 cryptoEngine ／ 販売元 Neutron・国産・代表が実資金で検証</Badge>
             <h1 className="mt-6 text-3xl font-extrabold leading-snug md:text-5xl">
-              寝ている間も、仕事中も。<br />あなたの代わりに24時間365日<span className="text-accent-soft">取引する頭脳</span>
+              寝ている間も、仕事中も。<br />あなたの代わりに24時間365日<span className="text-accent-soft">稼働する頭脳</span>
             </h1>
             <p className="mt-4 max-w-xl text-white/65">
-              <b>cryptoEngine（クリプトエンジン）</b>は、暗号通貨の取引を24時間365日・完全自動で続ける国産のプログラムです。
+              <b>cryptoEngine（クリプトエンジン）</b>は、暗号通貨の取引監視・判断・注文を24時間365日・完全自動で続ける国産のプログラムです。
               専門知識は一切いりません。チャートの見方も注文の出し方も、覚える必要なし。
               見張るだけではなく、<b className="text-accent-soft">判断も注文もほったらかし</b>。
               あなたがすることは<b className="text-accent-soft">「申し込むだけ」</b>です。
@@ -129,7 +129,7 @@ export default function CryptoEnginePage() {
             </Reveal>
             <Reveal kind="right" className="rounded-xl border border-accent bg-navy-800 p-6 shadow-[0_0_50px_rgba(16,185,129,.15)]">
               <h3 className="mb-3 font-bold text-accent-soft">エンジンに任せると…</h3>
-              <ul className="space-y-2 text-sm"><li><b className="text-accent-soft">感情ゼロ</b>。いつも同じ判断</li><li><b className="text-accent-soft">24時間365日</b>、休まず取引</li><li><b className="text-accent-soft">知識ゼロでOK</b>。覚えることなし</li><li><b className="text-accent-soft">記録つき</b>。あとで見返せる</li><li><b className="text-accent-soft">変わり続ける</b>。相場に合わせて最適解を更新</li></ul>
+              <ul className="space-y-2 text-sm"><li><b className="text-accent-soft">感情ゼロ</b>。いつも同じ判断</li><li><b className="text-accent-soft">24時間365日</b>、休まず稼働</li><li><b className="text-accent-soft">知識ゼロでOK</b>。覚えることなし</li><li><b className="text-accent-soft">記録つき</b>。あとで見返せる</li><li><b className="text-accent-soft">変わり続ける</b>。相場に合わせて最適解を更新</li></ul>
             </Reveal>
           </div>
         </section>
@@ -282,7 +282,7 @@ export default function CryptoEnginePage() {
                 対象はGMOコインの現物17銘柄ぜんぶ。5秒ごとに全部調べて、
                 条件を満たした中で「いちばん自信が高い1つ」だけ撃ちます。
                 持っている銘柄の買い増しや、持っていない銘柄の空売りはしません。
-                長く持ちすぎた建玉（約5分超）は時間切れで自動決済します。
+                長く持ちすぎた建玉（約2〜3分超）は時間切れで自動決済します。
               </p>
             </div>
           </Reveal>
@@ -292,7 +292,7 @@ export default function CryptoEnginePage() {
                 <th className="p-4 text-left">相場の天気</th><th className="p-4 text-left">ねらい</th><th className="p-4 text-left">持ち時間の目安</th><th className="p-4 text-left">参加条件</th>
               </tr></thead>
               <tbody className="[&_td]:border-t [&_td]:border-accent/10 [&_td]:p-4 [&_td]:align-top">
-                <tr><td className="font-bold text-accent-soft">上昇・下降トレンド</td><td>流れに乗る</td><td>30秒〜5分</td><td>自信0.45以上・ゆがみ0.30以上</td></tr>
+                <tr><td className="font-bold text-accent-soft">上昇・下降トレンド</td><td>流れに乗る</td><td>30秒〜約2分半</td><td>自信0.45以上・ゆがみ0.30以上</td></tr>
                 <tr><td className="font-bold text-accent-soft">横ばい（レンジ）</td><td>小さく獲る</td><td>15秒〜・休憩30秒</td><td>自信0.60以上・ゆがみ0.50以上</td></tr>
                 <tr><td className="font-bold text-accent-soft">荒れ相場</td><td>短期決戦のみ</td><td>10秒〜・休憩30秒</td><td>自信0.55以上・ゆがみ0.40以上</td></tr>
                 <tr><td className="font-bold text-accent-soft">反転の兆し</td><td>慎重に逆張り</td><td>20秒〜・休憩60秒</td><td>自信0.55以上（実績100件までは0.65）</td></tr>
@@ -364,7 +364,7 @@ export default function CryptoEnginePage() {
           <Reveal kind="gravity" className="grid gap-4 md:grid-cols-2">
             <div className="rounded-xl border border-accent/20 bg-navy-800 p-6 text-sm">
               <h3 className="mb-2 font-bold text-accent-soft">80名の理由＝市場へのやさしさ</h3>
-              <p className="text-white/70">市場は器が決まっています。注文が重なって互いの足を引っ張らないよう、科学的に80名を上限に固定。各グループで導入時期をずらし、市場影響ゼロを維持します。あなたの成績を守るための壁です。</p>
+              <p className="text-white/70">市場は器が決まっています。注文が重なって互いの足を引っ張らないよう、80名を上限に固定。各グループで導入時期をずらし、市場影響を抑えます。あなたの成績を守るための壁です。</p>
             </div>
             <div className="rounded-xl border border-accent/20 bg-navy-950 p-6 text-sm">
               <h3 className="mb-2 font-bold text-accent-soft">10名ずつのグループ（A → B → C … → H）</h3>
