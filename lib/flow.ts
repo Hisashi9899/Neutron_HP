@@ -1,5 +1,8 @@
 // 契約フロー基盤: 製品が増えても ?p=slug で同じ導線を使い回す。
 // 将来: funding-arb（ファンディングレート裁定）, grid-rebalance（グリッド/リバランスBot）
+// クライアントにも公開してよい製品情報のみを定義する。
+// 申込フォーム・決済URLは lib/flow.server.ts（サーバー専用）に分離し、
+// クライアントのJSバンドルへ含めない。
 export type Product = {
   slug: string;
   name: string;
@@ -7,9 +10,8 @@ export type Product = {
   monthly: number;
   cap: number;
   status: "live" | "soon";
-  formUrl: string;
-  signUrl: string;
-  stripeUrl: string;
+  /** true の間は新規申込ボタンを無効化し、販売中止の案内を表示する */
+  salesSuspended?: boolean;
 };
 
 export const PRODUCTS: Record<string, Product> = {
@@ -20,10 +22,8 @@ export const PRODUCTS: Record<string, Product> = {
     monthly: 25000,
     cap: 80,
     status: "live",
-    // 本番フォーム（2026-09-12公開）
-    formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfsUx5-9IvC53FwWy_4DAWFDm4sei_zXuvXdq4IcH0PSuiWzg/viewform?usp=publish-editor",
-    signUrl: "https://adobe.sign/placeholder",
-    stripeUrl: "https://buy.stripe.com/fZu5kF6JEcDW1dPc1n3ks00",
+    // 2026-11-05: 外部取引所のセキュリティ事案を受け、新規販売を一時中止
+    salesSuspended: true,
   },
   "funding-arb": {
     slug: "funding-arb",
@@ -32,9 +32,6 @@ export const PRODUCTS: Record<string, Product> = {
     monthly: 25000,
     cap: 80,
     status: "soon",
-    formUrl: "https://docs.google.com/forms/d/placeholder",
-    signUrl: "https://adobe.sign/placeholder",
-    stripeUrl: "https://buy.stripe.com/sub-placeholder",
   },
   "grid-rebalance": {
     slug: "grid-rebalance",
@@ -43,9 +40,6 @@ export const PRODUCTS: Record<string, Product> = {
     monthly: 25000,
     cap: 80,
     status: "soon",
-    formUrl: "https://docs.google.com/forms/d/placeholder",
-    signUrl: "https://adobe.sign/placeholder",
-    stripeUrl: "https://buy.stripe.com/sub-placeholder",
   },
 };
 
@@ -55,6 +49,11 @@ export function getProduct(slug?: string): Product {
 
 export const qp = (slug: string) => `?p=${slug}`;
 export const money = (n: number) => "¥" + n.toLocaleString("ja-JP");
+
+// 販売中止中に申込ボタンへ表示する文言
+export const SALES_SUSPENDED_MESSAGE = "現在販売を中止しております。";
+export const SALES_SUSPENDED_DETAIL =
+  "外部取引所のセキュリティ事案を受け、安全が確認できるまで新規のお申し込みを一時停止しております。再開時期は改めてお知らせします。";
 
 // 連絡先: 問い合わせ・申込・契約の全通知先
 export const CONTACT_EMAIL = "neutron.aoki@gmail.com";

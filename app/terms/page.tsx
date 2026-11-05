@@ -1,5 +1,7 @@
 import NeutronLogo from "../../components/NeutronLogo";
+import { SalesSuspendedNotice } from "../../components/SalesSuspended";
 import { getProduct, qp } from "../../lib/flow";
+import { getProductLinks } from "../../lib/flow.server";
 
 function Art({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
   return (
@@ -12,6 +14,7 @@ function Art({ n, title, children }: { n: string; title: string; children: React
 
 export default function TermsPage({ searchParams }: { searchParams?: { p?: string } }) {
   const p = getProduct(searchParams?.p);
+  const links = getProductLinks(searchParams?.p);
   return (
     <main className="overflow-x-clip bg-navy-900 text-white">
       <nav className="sticky top-0 z-20 border-b border-accent/20 bg-navy-900/85 backdrop-blur-md">
@@ -24,7 +27,9 @@ export default function TermsPage({ searchParams }: { searchParams?: { p?: strin
       </nav>
 
       <div className="mx-auto max-w-phi px-5 py-12 md:py-16">
-        <span className="mb-2 block text-sm tracking-phi text-accent-soft">申込前に必ず全文をお読みください</span>
+        <span className="mb-2 block text-sm tracking-phi text-accent-soft">
+          {p.salesSuspended ? "販売中止のお知らせ" : "申込前に必ず全文をお読みください"}
+        </span>
         <h1 className="text-2xl font-extrabold md:text-4xl">{p.name} 利用規約</h1>
         <p className="mt-3 max-w-2xl text-sm text-white/60">
           本規約は、Neutron（以下「提供者」）と{p.name}の利用を申し込む者（以下「利用者」）との間の契約内容を定める定型約款です。
@@ -114,11 +119,26 @@ export default function TermsPage({ searchParams }: { searchParams?: { p?: strin
         </div>
 
         <div className="mt-10 rounded-2xl border border-accent bg-navy-950/80 p-8 text-center md:p-10">
-          <p className="text-sm text-white/60">制定日：2026年9月17日 — 以上で全文です。同意の上、お申し込みください。</p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a href={p.formUrl} target="_blank" rel="noopener" className="cta-shine rounded-md bg-accent px-8 py-3 font-bold text-navy-950 transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(16,185,129,.45)]">規約に同意して申し込む</a>
-            <a href={`/notice${qp(p.slug)}`} className="rounded-md border border-accent/50 px-8 py-3 transition hover:border-accent hover:text-accent-soft">注意事項へ戻る</a>
-          </div>
+          {p.salesSuspended ? (
+            <>
+              <p className="text-sm text-white/60">制定日：2026年9月17日 — 以上で全文です。</p>
+              <SalesSuspendedNotice className="mt-4" />
+              <div className="mt-6 flex flex-wrap justify-center gap-4">
+                <span className="cursor-not-allowed rounded-md border border-amber-400/40 bg-amber-400/10 px-8 py-3 font-bold text-amber-200" aria-disabled="true">
+                  現在販売を中止しております。
+                </span>
+                <a href={`/notice${qp(p.slug)}`} className="rounded-md border border-accent/50 px-8 py-3 transition hover:border-accent hover:text-accent-soft">注意事項へ戻る</a>
+              </div>
+            </>
+          ) : (
+            <>
+              <p className="text-sm text-white/60">制定日：2026年9月17日 — 以上で全文です。同意の上、お申し込みください。</p>
+              <div className="mt-6 flex flex-wrap justify-center gap-4">
+                <a href={links.formUrl} target="_blank" rel="noopener" className="cta-shine rounded-md bg-accent px-8 py-3 font-bold text-navy-950 transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(16,185,129,.45)]">規約に同意して申し込む</a>
+                <a href={`/notice${qp(p.slug)}`} className="rounded-md border border-accent/50 px-8 py-3 transition hover:border-accent hover:text-accent-soft">注意事項へ戻る</a>
+              </div>
+            </>
+          )}
         </div>
       </div>
 

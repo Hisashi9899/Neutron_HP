@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import NeutronLogo from "../components/NeutronLogo";
 import PresaleButton from "../components/PresaleButton";
 import { Reveal, usePhiReveal } from "../components/Reveal";
+import { PRODUCTS } from "../lib/flow";
 
 const MENU = [
   { no: "01", title: "プロダクト", desc: "会社Neutronが販売する製品。24時間働くトレードの頭脳。", href: "/crypto-engine", cta: "cryptoEngineを見る →", hot: true },
@@ -82,12 +83,16 @@ export default function GatePage() {
         <div className="mx-auto max-w-phi px-5 py-16 md:py-24">
           <Reveal>
             <span className="mb-2 block text-sm tracking-phi text-gold">PRODUCTS — 01</span>
-            <h2 className="text-2xl font-extrabold md:text-3xl">販売中のプロダクト</h2>
+            <h2 className="text-2xl font-extrabold md:text-3xl">
+              {PRODUCTS.cryptoengine.salesSuspended ? "プロダクト" : "販売中のプロダクト"}
+            </h2>
           </Reveal>
           <Reveal kind="gravity" className="mt-8">
             <a href="/crypto-engine" className="float-card block rounded-2xl border border-gold/40 bg-gradient-to-br from-deep2 via-ink to-navy-900 p-8 md:p-12">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="rounded-full border border-accent/50 bg-accent/10 px-4 py-1 text-[11px] font-bold tracking-widest text-accent-soft">● 先行予約受付中</span>
+                <span className={`rounded-full border px-4 py-1 text-[11px] font-bold tracking-widest ${PRODUCTS.cryptoengine.salesSuspended ? "border-amber-400/40 bg-amber-400/10 text-amber-200" : "border-accent/50 bg-accent/10 text-accent-soft"}`}>
+                  {PRODUCTS.cryptoengine.salesSuspended ? "● 販売中止中" : "● 先行予約受付中"}
+                </span>
                 <span className="text-[11px] tracking-phi text-paper/50">国産・完全自動可変式</span>
               </div>
               <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">cryptoEngine</h3>
@@ -153,7 +158,7 @@ export default function GatePage() {
           <Reveal className="mx-auto max-w-xl text-center">
             <span className="mb-2 block text-sm tracking-phi text-gold">CONTACT</span>
             <h2 className="text-2xl font-extrabold">お問い合わせ</h2>
-            <p className="mt-3 text-sm text-paper/60">製品のお申込は cryptoEngineページの申込導線から。取材・提携は以下からどうぞ。返信先は neutron.aoki@gmail.com です。</p>
+            <p className="mt-3 text-sm text-paper/60">cryptoEngineは現在、新規のお申し込みを停止しております。取材・提携は以下からどうぞ。返信先は neutron.aoki@gmail.com です。</p>
             <p className="mt-2 text-sm"><a href="mailto:neutron.aoki@gmail.com" className="font-bold text-gold underline underline-offset-4">neutron.aoki@gmail.com に直接メールする</a></p>
             <form action="mailto:neutron.aoki@gmail.com?subject=%E3%80%90Neutron%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B" method="post" encType="text/plain" className="mt-8 grid gap-3 text-left">
               <label className="text-xs tracking-widest text-gold">お名前</label>

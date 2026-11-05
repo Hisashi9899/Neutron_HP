@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { PRESALE_END } from "../lib/flow";
+import { PRESALE_END, PRODUCTS } from "../lib/flow";
 
 function split(end: number, now: number) {
   const s = Math.max(0, Math.floor((end - now) / 1000));
@@ -21,6 +21,14 @@ export default function PresaleButton() {
     const id = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(id);
   }, []);
+
+  if (PRODUCTS.cryptoengine.salesSuspended) {
+    return (
+      <a href="/crypto-engine" className="rounded-md border border-paper/20 px-5 py-2 text-sm text-paper/50">
+        販売中止中
+      </a>
+    );
+  }
 
   if (now === null) {
     return (

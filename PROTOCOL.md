@@ -37,8 +37,8 @@
 - 返金申請：デプロイ完了報告メール送信前のみ受付
 
 ## 6. 公開前チェックリスト
-- [ ] lib/flow.ts の formUrl を本番フォームURLに置換
-- [ ] lib/flow.ts の stripeUrl を本番サブスクリンクに置換（STRIPE_SUB も同様）
+- [ ] lib/flow.server.ts の formUrl を本番フォームURLに置換
+- [ ] lib/flow.server.ts の stripeUrl を本番サブスクリンクに置換（STRIPE_SUB も同様）
 - [ ] フォームの通知・自動返信の動作テスト（自分宛テスト送信）
 - [ ] 確認メール雛形の口座・金額・期限の記載確認
 - [ ] 先行予約期間（9/17〜10/16 17:00 JST）の表示確認

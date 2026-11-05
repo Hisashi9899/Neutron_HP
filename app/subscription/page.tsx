@@ -1,8 +1,10 @@
 import NeutronLogo from "../../components/NeutronLogo";
 import { getProduct, money, qp } from "../../lib/flow";
+import { getProductLinks } from "../../lib/flow.server";
 
 export default function SubscriptionPage({ searchParams }: { searchParams?: { p?: string } }) {
   const p = getProduct(searchParams?.p);
+  const links = getProductLinks(searchParams?.p);
   return (
     <main className="overflow-x-clip bg-navy-900 text-white">
       <nav className="sticky top-0 z-20 border-b border-accent/20 bg-navy-900/85 backdrop-blur-md">
@@ -29,7 +31,7 @@ export default function SubscriptionPage({ searchParams }: { searchParams?: { p?
             <p>■ 領収書は自動発行・メール通知つき</p>
             <p>■ 自動更新（解約はいつでも可能）</p>
           </div>
-          <a href={p.stripeUrl} target="_blank" rel="noopener" className="cta-shine mt-7 inline-block rounded-md bg-accent px-10 py-3 font-bold text-navy-950 transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(16,185,129,.45)]">サブスクを登録する</a>
+          <a href={links.stripeUrl} target="_blank" rel="noopener" className="cta-shine mt-7 inline-block rounded-md bg-accent px-10 py-3 font-bold text-navy-950 transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(16,185,129,.45)]">サブスクを登録する</a>
           <p className="mt-5 text-xs text-white/50">
             登録が済んだ方は<a href={`/complete${qp(p.slug)}`} className="font-bold text-accent-soft underline underline-offset-4">完了ページへ進む →</a>
           </p>

@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import NeutronLogo from "../../components/NeutronLogo";
 import SevenGateLogo from "../../components/SevenGateLogo";
 import { Reveal, usePhiReveal } from "../../components/Reveal";
+import { SalesSuspendedButton, SalesSuspendedNotice } from "../../components/SalesSuspended";
 import { usePresaleActive } from "../../components/usePresaleActive";
 import { PRESALE_DISCOUNT, getProduct, money, qp } from "../../lib/flow";
 
@@ -31,6 +32,7 @@ function Badge({ children }: { children: React.ReactNode }) {
 export default function CryptoEnginePage() {
   usePhiReveal();
   const presale = usePresaleActive();
+  const suspended = p.salesSuspended === true;
   return (
     <main className="overflow-x-clip bg-navy-900 text-white">
       {/* NAV */}
@@ -42,7 +44,11 @@ export default function CryptoEnginePage() {
           </a>
           <div className="flex items-center gap-3">
             <span className="hidden rounded-full border border-accent/40 px-3 py-1 text-[11px] text-accent-soft sm:inline">製品：cryptoEngine</span>
-            <a href="/notice?p=cryptoengine" className="rounded-md bg-accent px-5 py-2 text-sm font-bold text-navy-950 transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(16,185,129,.4)]">申し込む</a>
+            {suspended ? (
+              <SalesSuspendedButton className="whitespace-nowrap px-3 py-2 text-[11px]" />
+            ) : (
+              <a href="/notice?p=cryptoengine" className="rounded-md bg-accent px-5 py-2 text-sm font-bold text-navy-950 transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(16,185,129,.4)]">申し込む</a>
+            )}
           </div>
         </div>
       </nav>
@@ -64,10 +70,15 @@ export default function CryptoEnginePage() {
               <span className="mt-3 block text-sm text-white/60">代表自ら実資金で検証し、動くものだけを製品化。デモや机上の理論ではありません。</span>
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="/notice?p=cryptoengine" className="cta-shine rounded-md bg-accent px-8 py-3 font-bold text-navy-950 transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(16,185,129,.4)]">今すぐ申し込む</a>
+              {suspended ? (
+                <SalesSuspendedButton />
+              ) : (
+                <a href="/notice?p=cryptoengine" className="cta-shine rounded-md bg-accent px-8 py-3 font-bold text-navy-950 transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(16,185,129,.4)]">今すぐ申し込む</a>
+              )}
               <a href="#arch" className="rounded-md border border-accent/40 px-8 py-3 transition hover:border-accent hover:text-accent-soft">仕組みを見る</a>
             </div>
-            {presale === true && (
+            {suspended && <SalesSuspendedNotice className="mt-6" showMessage={false} />}
+            {!suspended && presale === true && (
               <a href="#price" className="mt-5 inline-block rounded-full border border-accent bg-accent/15 px-5 py-2 text-sm font-bold text-accent-soft shadow-[0_0_30px_rgba(16,185,129,.3)] transition hover:-translate-y-0.5">
                 先行予約特典：設置代 {money(PRESALE_DISCOUNT)}引き（9/17〜10/16 17:00）→
               </a>
@@ -315,7 +326,7 @@ export default function CryptoEnginePage() {
             {(
             [
               ["STEP 1", "申込", "あなた／1分", true], ["STEP 2", "電子契約", "あなた／署名だけ", true],
-              ["STEP 3", "お支払い①", presale ? "設置代 ¥50,000（特典）" : "設置代 ¥60,000", true], ["STEP 4", "設置", "販売元Neutronが代行", false],
+              ["STEP 3", "お支払い①", !suspended && presale ? "設置代 ¥50,000（特典）" : "設置代 ¥60,000", true], ["STEP 4", "設置", "販売元Neutronが代行", false],
               ["STEP 5", "完了メール", "自動で届く", false], ["STEP 6", "お支払い②", "利用料 ¥25,000/月", true],
               ["STEP 7", "スタート", "24時間開始", false],
             ] as [string, string, string, boolean][]
@@ -336,7 +347,7 @@ export default function CryptoEnginePage() {
           <div className="grid gap-4 md:grid-cols-[1.618fr_1fr]">
             <Reveal kind="left" className="float-card rounded-2xl border border-accent bg-gradient-to-b from-navy-800 to-navy-950 p-8">
               <span className="rounded-full border border-accent/30 bg-accent/15 px-3 py-1 text-[11px] tracking-widest text-accent-soft">最初だけ — 設置代</span>
-              {presale === true ? (
+              {!suspended && presale === true ? (
                 <>
                   <span className="mt-3 inline-block rounded-full bg-accent px-4 py-1 text-xs font-bold text-navy-950">先行予約特典 −{money(PRESALE_DISCOUNT)}</span>
                   <div className="my-2 text-5xl font-extrabold text-accent-soft">{money(60000 - PRESALE_DISCOUNT)}</div>
@@ -389,7 +400,7 @@ export default function CryptoEnginePage() {
               <ol className="ml-5 mt-2 list-decimal space-y-1">
                 <li>Xや紹介でこのページに到着</li>
                 <li>申込 → 電子契約（署名だけ）</li>
-                <li>お支払い① 設置代 {presale ? "¥50,000（先行予約特典）" : "¥60,000"}</li>
+                <li>お支払い① 設置代 {!suspended && presale ? "¥50,000（先行予約特典）" : "¥60,000"}</li>
                 <li>販売元のNeutronが設置・動作確認</li>
                 <li>完了メールが届く</li>
                 <li>お支払い② 利用料 ¥25,000/月</li>
@@ -402,13 +413,28 @@ export default function CryptoEnginePage() {
         {/* 12 CTA */}
         <section id="apply" className="py-16">
           <div className="rounded-2xl border border-accent bg-navy-950/80 p-8 text-center shadow-[0_0_80px_rgba(16,185,129,.12)] md:p-12">
-            <Badge>先着80名・完全限定 — 満枠で締切</Badge>
-            <h2 className="mt-4 text-2xl font-extrabold md:text-3xl">枠が埋まる前に申し込む</h2>
-            <p className="mx-auto mt-3 max-w-xl text-sm text-white/60">申込は3分で完了。むずかしい設置は販売元が代行します。先着80名・満枠で締切です。</p>
-            <div className="mx-auto mt-8 grid max-w-md gap-3 text-center">
-              <a href={`/notice${qp(PRODUCT_SLUG)}`} className="cta-shine rounded-md bg-accent py-3 font-bold text-navy-950">80名の枠に申し込む</a>
-              <p className="text-center text-xs text-white/50">注意事項→Googleフォーム→確認メールの同意返信の順です。フォーム記入は1回だけです。</p>
-            </div>
+            {suspended ? (
+              <>
+                <Badge>重要なお知らせ</Badge>
+                <h2 className="mt-4 text-2xl font-extrabold md:text-3xl">新規のお申し込みを停止しています</h2>
+                <p className="mx-auto mt-3 max-w-xl text-sm text-white/60">
+                  外部取引所のセキュリティ事案を受け、安全が確認できるまで新規のお申し込みを一時停止しております。再開時期は改めてお知らせします。
+                </p>
+                <div className="mx-auto mt-8 max-w-md">
+                  <SalesSuspendedButton className="w-full" />
+                </div>
+              </>
+            ) : (
+              <>
+                <Badge>先着80名・完全限定 — 満枠で締切</Badge>
+                <h2 className="mt-4 text-2xl font-extrabold md:text-3xl">枠が埋まる前に申し込む</h2>
+                <p className="mx-auto mt-3 max-w-xl text-sm text-white/60">申込は3分で完了。むずかしい設置は販売元が代行します。先着80名・満枠で締切です。</p>
+                <div className="mx-auto mt-8 grid max-w-md gap-3 text-center">
+                  <a href={`/notice${qp(PRODUCT_SLUG)}`} className="cta-shine rounded-md bg-accent py-3 font-bold text-navy-950">80名の枠に申し込む</a>
+                  <p className="text-center text-xs text-white/50">注意事項→Googleフォーム→確認メールの同意返信の順です。フォーム記入は1回だけです。</p>
+                </div>
+              </>
+            )}
           </div>
         </section>
       </div>
